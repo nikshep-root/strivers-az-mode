@@ -1,14 +1,14 @@
-public class lowerBound {
+public class SearchInsertPosition {
     public static void main(String[] args){
-        int[] nums = {3,5,8,15,19};
-        int target = 9;
-        int ans = lowerBound(nums,target);
+        int[] nums = {1,3,5,6};
+        int target = 2;
+        int ans = search(nums,target);
         System.out.println(ans);
     }
-    static int lowerBound(int[] nums,int target){
+    static int search(int[] nums,int target){
         int start = 0;
-        int end = nums.length - 1;
-        while(start <= end) {
+        int end = nums.length-1;
+        while(start <= end){
             int mid = start + (end - start)/2;
             if(nums[mid] == target){
                 return mid;
@@ -17,12 +17,12 @@ public class lowerBound {
                 start = mid + 1;
             }
             else{
-                end = mid - 1;
+                end = mid -1;
             }
         }
-        if(start < nums.length){
-           return start;
+        if(start <= nums.length-1){
+            return start;
         }
-        return nums.length-1;
+        return nums.length;
     }
 }
